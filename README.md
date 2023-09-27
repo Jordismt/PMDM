@@ -1,5 +1,5 @@
 # PMDM
-# Nombre del Proyecto
+# COntador
 
     Proyecto de contador para empezar a entender el funcionamiento de varias funciones de Android Studio, Kotlin
 
