@@ -57,20 +57,8 @@ public class communicationManager {
     }
 
     public static void sendMessage(Message m) throws communicationManagerException, IOException {
-        JSONObject messageData = new JSONObject();
-        messageData.put("command", "newMessage");
-        messageData.put("user", CurrentConfig.username());
+        sendServer(m.toJSONCommand().toString());
 
-        JSONObject response = sendServer(messageData.toString());
-
-        if (response.has("status") && response.getString("status").equals("ok")) {
-            // Mensaje enviado correctamente
-        } else if (response.has("status") && response.getString("status").equals("error")) {
-            String errorMessage = response.getString("error");
-            throw new communicationManagerException("Error enviando mensaje: " + errorMessage);
-        } else {
-            throw new communicationManagerException("Error del servidor.");
-        }
     }
 }
 
